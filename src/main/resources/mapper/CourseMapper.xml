@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tencent.wxcloudrun.dao.CourseMapper">
+    <resultMap id="CourseMapper" type="com.tencent.wxcloudrun.model.Course">
+        <result property="Course_Id" column="Course_Id"/>
+        <result property="Course_Name" column="Course_Name"/>
+        <result property="Teacher_Id" column="Teacher_Id"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="com.tencent.wxcloudrun.model.Course">
+        INSERT INTO Course (`Course_Id`, `Course_Name`, `Teacher_Id`) VALUES (#{Course_id}, #{Course_Name}, #{Teacher_Id});
+    </insert>
+
+    <delete id="delete" parameterType="com.tencent.wxcloudrun.model.Course">
+        DELETE FROM Course WHERE `Course_Id` =#{Course_Id};
+    </delete>
+
+    <select id="select" parameterType="com.tencent.wxcloudrun.model.Course">
+        SELECT * FROM Course;
+    </select>
+</mapper>

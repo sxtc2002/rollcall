@@ -4,11 +4,9 @@ import com.tencent.wxcloudrun.config.ApiResponse;
 import com.tencent.wxcloudrun.model.Course;
 import com.tencent.wxcloudrun.service.CourseService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.ArrayList;
 
 @Controller
 public class CourseController {
@@ -30,9 +28,8 @@ public class CourseController {
         return ApiResponse.ok(0);
     }
 
-    @GetMapping("/course/select")
+    @PostMapping("/course/select")
     ApiResponse select() {
-        ArrayList<Course> course = courseService.select();
-        return ApiResponse.ok(course);
+        return ApiResponse.ok(courseService.select());
     }
 }
